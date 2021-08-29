@@ -1712,12 +1712,11 @@ func (q *QMP) ExecuteQuerySEVLaunchMeasure(ctx context.Context) (SEVLaunchMeasur
 }
 
 // ExecuteSEVInjectLaunchSecret injects launch secret bundle into SEV guest
-func (q *QMP) ExecuteSEVInjectLaunchSecret(ctx context.Context, packet_hdr string, secret string, gpa string) error {
+func (q *QMP) ExecuteSEVInjectLaunchSecret(ctx context.Context, packet_hdr string, secret string) error {
 	// TODO: 'secret': base64.b64encode(encrypted_secret).decode()
 	args := map[string]interface{}{
-		"packet_hdr": packet_hdr,
-		"secret":     secret,
-		"gpa":        gpa,
+		"packet-header": packet_hdr,
+		"secret":        secret,
 	}
 
 	//ExecuteCont(ctx)

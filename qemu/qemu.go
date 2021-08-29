@@ -349,12 +349,12 @@ func (object Object) QemuParams(config *Config) []string {
 		objectParams = append(objectParams, fmt.Sprintf("id=%s", object.ID))
 		objectParams = append(objectParams, fmt.Sprintf("cbitpos=%d", object.CBitPos))
 		objectParams = append(objectParams, fmt.Sprintf("reduced-phys-bits=%d", object.ReducedPhysBits))
-		objectParams = append(objectParams, fmt.Sprintf(",policy=%d", object.SevPolicy))
+		objectParams = append(objectParams, fmt.Sprintf("policy=%d", object.SevPolicy))
 		if object.CertFilePath != "" {
-			objectParams = append(objectParams, fmt.Sprintf(",dh-cert-file=%s", object.CertFilePath))
+			objectParams = append(objectParams, fmt.Sprintf("dh-cert-file=%s", object.CertFilePath))
 		}
 		if object.SessionFilePath != "" {
-			objectParams = append(objectParams, fmt.Sprintf(",session-file=%s", object.SessionFilePath))
+			objectParams = append(objectParams, fmt.Sprintf("session-file=%s", object.SessionFilePath))
 		}
 		// Add OVMF firmware as pflash drive
 		driveParams = append(driveParams, "if=pflash,format=raw,readonly=on")
